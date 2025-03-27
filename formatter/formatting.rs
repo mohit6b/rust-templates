@@ -50,8 +50,9 @@ fn main() {
     // types that implement fmt::Display can be formatted with `{}`
     // User defined types cannot be formatted
     #[allow(dead_code)]
+    #[derive(Debug)]
     struct Structure(i32);
-    // println!("This won't {} print", Structure(3)); // This won't print coz Structure is user-defined & doesn't implement fmt::Display
+    println!("This won't {:?} print", Structure(3)); // This won't print coz Structure is user-defined & doesn't implement fmt::Display
 
     let number: f64 = 3.0;
     let width: usize = 5;
@@ -61,5 +62,8 @@ fn main() {
     let number: f32 = 4.0;
     let width: usize = 7;
     println!("{number:1<width$}");
+
+    let pi: f64 = 3.141592;
+    println!("Pi is roughly {pi:.0$}", 3);
 
 }
